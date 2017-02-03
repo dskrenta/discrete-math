@@ -1,12 +1,9 @@
 #include <iostream>
-#include <string>;
 using namespace std;
 
-int multiply1(int num1, int num2);
+int multiply1(double num1, double num2);
 int multiply2(int num1, int num2);
 int multiply3(int num1, int num2);
-
-int long_multiplication(int num1, int num2);
 
 int main() {
   int num1 = 4321;
@@ -17,8 +14,8 @@ int main() {
   cout << multiply3(num1, num2) << endl;
 }
 
-int multiply1(int num1, int num2) {
-  return num1 * num2;
+int multiply1(double num1, double num2) {
+  return num1 / (1 / num2);
 }
 
 int multiply2(int num1, int num2) {
@@ -27,8 +24,4 @@ int multiply2(int num1, int num2) {
 
 int multiply3(int num1, int num2) {
   return num1 * num2;
-}
-
-int long_multiplication(int num1, int num2) {
-  string str_num2 = to_string(num2);
 }
