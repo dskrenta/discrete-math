@@ -8,7 +8,7 @@ void convertDecimalToOctal (int num);
 void convertDecimalToHexademical (int num);
 
 int main () {
-  int num = 25;
+  int num = 1435;
 
   convertDecimalToBinary(num);
   cout << endl;
@@ -31,25 +31,40 @@ void convertDecimalToBinary (int num) {
   cout << output;
 }
 
-void convertDecimalToHexademical (int num) {
+void convertDecimalToOctal (int num) {
   int output;
-  std::string value;
-  stack <string> values;
-  string hexChars[] = {"A", "B", "C", "D", "E", "F"};
 
-  while (num <= 1) {
-    output = num % 16;
-    if (output > 9) {
-      // convert to hexChar
-      value = hexChars[output - 10];
-    } else {
-      value = std::to_string(output);
-    }
-    values.push(value);
-    num /= 16;
+  if (num <= 1) {
+    cout << num;
+    return;
   }
 
-  while (values.size() != 0) {
-    cout << values.pop();
+  output = num % 8;
+  convertDecimalToOctal(num / 8);
+  cout << output;
+}
+
+void convertDecimalToHexademical (int num) {
+  int output;
+  stack<string> hex;
+  string hexChars[] = {"A", "B", "C", "D", "E", "F"};
+
+  while (num >= 1) {
+    string value;
+    output = num % 16;
+
+    if (output > 9) {
+      value = hexChars[output - 10];
+    } else {
+      value = to_string(output);
+    }
+
+    hex.push(value);
+    num = num / 16;
+  }
+
+  while (!hex.empty()) {
+    cout << hex.top();
+    hex.pop();
   }
 }
