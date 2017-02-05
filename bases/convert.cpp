@@ -8,7 +8,7 @@ void convertDecimalToOctal (int num);
 void convertDecimalToHexademical (int num);
 
 int main () {
-  int num = 1435;
+  int num = 2348;
 
   convertDecimalToBinary(num);
   cout << endl;
@@ -35,7 +35,6 @@ void convertDecimalToOctal (int num) {
   int output;
 
   if (num <= 1) {
-    cout << num;
     return;
   }
 
