@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 int multiply1(double num1, double num2);
@@ -17,37 +18,33 @@ int main() {
   cout << multiply3(num1, num2) << endl;
 }
 
+// Multiplication through division of reciprocal
 int multiply1(double num1, double num2) {
   return num1 / (1 / num2);
 }
 
+// Compiler multiplication
 int multiply2(int num1, int num2) {
   return num1 * num2;
 }
 
+// Long multiplication
 int multiply3(int num1, int num2) {
-  int *digits;
-  digits = splitNum(num2);
-
-  return num1 * num2;
-}
-
-int * splitNum(int num) {
-  int digits[getNumLength(num)];
+  int result = 0;
+  int digits[4];
+  int num = num2;
   int index = 0;
+
   while (num > 0) {
     int digit = num % 10;
     num /= 10;
-    index++;
     digits[index] = digit;
+    index++;
   }
-  return digits;
-}
 
-int getNumLength(int num) {
-  int length = 1;
-  while (num /= 10) {
-    length++;
+  for(int i = 0; i < 4; i++) {
+    result += num1 * (digits[i] * pow(10, i));
   }
-  return length;
+
+  return result;
 }
