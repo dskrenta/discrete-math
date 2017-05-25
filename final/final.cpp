@@ -1,17 +1,17 @@
 #include <iostream>
 using namespace std;
 
-int sum(int x);
+int recursiveSum(int x, int sum);
 
 int main() {
-  cout << sum(10) << endl;
+  cout << recursiveSum(10, 0) << endl;
 }
 
-int sum(int x) {
-  int result = x;
-  while(x > 0) {
-    result += x - 1;
-    x--;
+int recursiveSum(int x, int sum) {
+  if(x == 0) {
+    return sum;
+  } else {
+    sum += x--;
+    return recursiveSum(x--, sum);
   }
-  return result;
 }
